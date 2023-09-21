@@ -6,6 +6,9 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import random
+from sklearn.metrics import confusion_matrix
+import itertools
+import numpy as np
 
 def unzip(url: str, filename: str) -> None:
     """
@@ -165,3 +168,49 @@ def compare_histories(prior_history: tf.keras.callbacks.History, new_history: tf
     plt.plot([initial_epochs - 1, initial_epochs - 1], plt.ylim(), 'k--', label='Start Fine Tuning')
     plt.legend(loc='upper right')
     plt.title('Training and Validation Loss')
+
+def create_confusion(y_true, y_pred, classes=None, figsize=(10, 10), text_size=15):
+  cm = confusion_matrix(y_true, tf.round(y_pred))
+  cm_norm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis] #normalizing
+  n_classes = cm.shape[0]
+
+  #visuals
+  fig, ax = plt.subplots(figsize=figsize)
+
+  #plot
+  cax=ax.matshow(cm, cmap=plt.cm.Blues)
+  fig.colorbar(cax)
+
+  #Classes
+  if classes!=None:
+    labels=classes
+  else:
+    labels=np.arange(cm.shape[0])
+
+  #Label axes
+  ax.set(title='CM',
+        xlabel='Pred Label',
+        ylabel='True Label',
+        xticks=np.arange(n_classes),
+        yticks=np.arange(n_classes),
+        xticklabels=labels,
+        yticklabels=labels)
+
+  #Set x-axis labels to bottom
+  ax.xaxis.set_label_position('bottom')
+  ax.xaxis.tick_bottom()
+
+  #Adjust label size
+  ax.xaxis.label.set_size(text_size)
+  ax.yaxis.label.set_size(text_size)
+  ax.title.set_size(text_size)
+
+  #Threshold for colors
+  threshold = (cm.max() + cm.min()) / 2.
+
+  #Plot text on each cell
+  for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+    plt.text(j, i, f"{cm[i, j]} ({cm_norm[i, j]*100:.1f}%)",
+    horizontalalignment='center',
+    color='white' if cm[i, j] > threshold else 'black',
+    size=text_size)
