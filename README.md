@@ -20,7 +20,8 @@ Each notebook corresponds to a section or module from the course curriculum. The
 ### Module 6 - Transfer Learning Part 2: Fine Tuning 🛠️
 - Notebook 9 - [05_transfer_learning_part_2](https://github.com/vekoada/tensorflow-course/blob/main/05_transfer_learning_part_2_fine_tuning.ipynb) 
 ### Module 7 - Transfer Learning Part 3: Scaling Up 📈
-- Notebook 10 - 06_transfer_learning_part_3.ipynb **in progress** 🚧
+- Notebook 10 - [06_transfer_learning_part_3](https://github.com/vekoada/tensorflow-course/blob/main/06_transfer_learning_part_3.ipynb)
+### Module 8 - Food Vision Project! **in progress** 🚧
 ### More Modules...
 
 ## Resources 📚
@@ -31,5 +32,5 @@ Some additional resources I've found helpful:
 - [Hands-On Machine Learning](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1491962291/ref=sr_1_5?keywords=hands+on+machine+learning+with+scikit-learn+and+tensorflow+3&sr=8-5)
 
 ## Status 📅
-I'm currently working through Module 7 of the course. My goal is to complete all notebooks and reviews in preparation for taking the exam by mid-October, 2023. Feedback and suggestions for improvement are welcome!👍
+I'm currently working through Module 8 of the course. My goal is to complete all notebooks and reviews in preparation for taking the exam by mid-October, 2023. Feedback and suggestions for improvement are welcome!👍
 
