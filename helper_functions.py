@@ -6,7 +6,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import random
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_recall_fscore_support
 import itertools
 import numpy as np
 
@@ -168,6 +168,23 @@ def compare_histories(prior_history: tf.keras.callbacks.History, new_history: tf
     plt.plot([initial_epochs - 1, initial_epochs - 1], plt.ylim(), 'k--', label='Start Fine Tuning')
     plt.legend(loc='upper right')
     plt.title('Training and Validation Loss')
+
+def get_metrics(y_true, y_pred):
+  """
+  Calculates model accuracy, precision, recall, and F1 score of a binary classfication model
+  """
+  #Calculate accuracy
+  acc = accuracy_score(y_true, y_pred) * 100
+  #Calculate precision, recall, f1 with weighted average
+  prec, recall, f1, _ = precision_recall_fscore_support(y_true=y_true,
+                                                        y_pred=y_pred,
+                                                        average='weighted')
+  results = {'accuracy': acc,
+             'precision': prec,
+             'recall': recall,
+             'f1': f1}
+
+  return results
 
 def create_confusion(y_true, y_pred, classes=None, figsize=(10, 10), text_size=15):
   cm = confusion_matrix(y_true, tf.round(y_pred))
