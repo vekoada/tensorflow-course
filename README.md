@@ -34,5 +34,5 @@ Some additional resources I've found helpful:
 - [Hands-On Machine Learning](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1491962291/ref=sr_1_5?keywords=hands+on+machine+learning+with+scikit-learn+and+tensorflow+3&sr=8-5)
 
 ## Status 📅
-I'm currently working through Module 9 of the course. My goal is to complete all notebooks and reviews in preparation for taking the exam by mid-October, 2023. Feedback and suggestions for improvement are welcome!👍
+I'm currently working through Module 9 of the course. My goal is to complete all notebooks and reviews in preparation for taking the exam by the end of February 2024. Feedback and suggestions for improvement are welcome!👍
 
